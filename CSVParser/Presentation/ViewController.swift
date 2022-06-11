@@ -11,6 +11,10 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
 
+    private lazy var viewModel: ViewModel = {
+        return ViewModel()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -21,49 +25,17 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0 //TODO: get count from array
+        return viewModel.itemsCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCell.identifier) as? TableViewCell,
+                let item = viewModel.item(at: indexPath.row) else {
             return UITableViewCell()
         }
         
-        //TODO: configure cell
+        cell.configure(item)
         
         return cell
     }
 }
-
-class TableViewCell: UITableViewCell {
-    
-    static let identifier = "cellId"
-    
-    @IBOutlet weak var containerView: UIView! {
-        didSet {
-            containerView.layer.cornerRadius = 10
-            contentView.backgroundColor = .lightBackgroundColor
-        }
-    }
-    
-    @IBOutlet weak var titleLabel: UILabel! {
-        didSet {
-            titleLabel.textColor = .primaryColor
-        }
-    }
-    
-    @IBOutlet weak var subTitleLabel: UILabel! {
-        didSet {
-            subTitleLabel.textColor = .darkTextColor
-        }
-    }
-    
-    @IBOutlet weak var rightDetailLabel: UILabel! {
-        didSet {
-            rightDetailLabel.textColor = .secondaryColor
-            
-        }
-    }
-    
-}
-
