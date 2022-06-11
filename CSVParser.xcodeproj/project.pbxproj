@@ -15,6 +15,7 @@
 		378997E028548F430055C432 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378997DE28548F430055C432 /* LaunchScreen.storyboard */; };
 		378997EB28548F430055C432 /* CSVParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378997EA28548F430055C432 /* CSVParserTests.swift */; };
 		378997F728548F430055C432 /* CSVParserUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378997F628548F430055C432 /* CSVParserUITestsLaunchTests.swift */; };
+		3797EADC28549B9400134632 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EADB28549B9400134632 /* ColorExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		378997EA28548F430055C432 /* CSVParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserTests.swift; sourceTree = "<group>"; };
 		378997F028548F430055C432 /* CSVParserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSVParserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		378997F628548F430055C432 /* CSVParserUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3797EADB28549B9400134632 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +99,10 @@
 		378997D228548F410055C432 /* CSVParser */ = {
 			isa = PBXGroup;
 			children = (
+				3797EADA28549B8200134632 /* Extensions */,
+				3797EAD9285494A200134632 /* Presentation */,
 				378997D328548F410055C432 /* AppDelegate.swift */,
 				378997D528548F410055C432 /* SceneDelegate.swift */,
-				378997D728548F410055C432 /* ViewController.swift */,
 				378997D928548F410055C432 /* Main.storyboard */,
 				378997DC28548F430055C432 /* Assets.xcassets */,
 				378997DE28548F430055C432 /* LaunchScreen.storyboard */,
@@ -122,6 +125,22 @@
 				378997F628548F430055C432 /* CSVParserUITestsLaunchTests.swift */,
 			);
 			path = CSVParserUITests;
+			sourceTree = "<group>";
+		};
+		3797EAD9285494A200134632 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				378997D728548F410055C432 /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3797EADA28549B8200134632 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3797EADB28549B9400134632 /* ColorExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +277,7 @@
 				378997D828548F410055C432 /* ViewController.swift in Sources */,
 				378997D428548F410055C432 /* AppDelegate.swift in Sources */,
 				378997D628548F410055C432 /* SceneDelegate.swift in Sources */,
+				3797EADC28549B9400134632 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
