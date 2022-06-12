@@ -17,11 +17,9 @@ class MockView {
     private(set) var handleError: Error?
     
     func verify() {
-        let verified = reloadViewCount == 0 &&
-        handleLoadingStartCount == 0 &&
-        handleLoadingStopCount == 0
-        
-        XCTAssertTrue(verified)
+        XCTAssertTrue(reloadViewCount == 0)
+        XCTAssertTrue(handleLoadingStartCount == 0)
+        XCTAssertTrue(handleLoadingStopCount == 0)
     }
     
     func expectReload(_ times: Int) {

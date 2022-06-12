@@ -11,29 +11,28 @@ class TableViewCell: UITableViewCell {
     
     static let identifier = "cellId"
     
-    @IBOutlet weak var containerView: UIView! {
+    @IBOutlet private weak var containerView: UIView! {
         didSet {
             containerView.layer.cornerRadius = 10
             contentView.backgroundColor = .lightBackgroundColor
         }
     }
     
-    @IBOutlet weak var titleLabel: UILabel! {
+    @IBOutlet private weak var titleLabel: UILabel! {
         didSet {
             titleLabel.textColor = .primaryColor
         }
     }
     
-    @IBOutlet weak var subTitleLabel: UILabel! {
+    @IBOutlet private weak var subTitleLabel: UILabel! {
         didSet {
             subTitleLabel.textColor = .darkTextColor
         }
     }
     
-    @IBOutlet weak var rightDetailLabel: UILabel! {
+    @IBOutlet private weak var rightDetailLabel: UILabel! {
         didSet {
             rightDetailLabel.textColor = .secondaryColor
-            
         }
     }
     

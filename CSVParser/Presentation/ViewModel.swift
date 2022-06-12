@@ -21,6 +21,7 @@ class ViewModel {
     
     func loadFile(url: URL) {
         view?.handleLoadingStart()
+        resetViewData()
     
         repository.loadItems(url: url) { [weak self] items, error in
             guard let error = error else {
@@ -45,6 +46,11 @@ class ViewModel {
         }
         
         return items[index]
+    }
+    
+    private func resetViewData() {
+        items.removeAll()
+        view?.reloadView()
     }
     
 }

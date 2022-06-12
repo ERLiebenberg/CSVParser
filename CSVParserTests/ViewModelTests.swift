@@ -39,12 +39,12 @@ class ViewModelTests: XCTestCase {
     func testItemsCountWithInvalidIndex() {
         XCTAssertNil(serviceUnderTest.item(at: 999))
     }
-    
+
     func testLoadItemsUrl() {
         let expected = generateUrl()
         
         mockView.expectHandleLoadingStart(1)
-        mockView.expectReload(0)
+        mockView.expectReload(1)
         mockView.expectHandleLoadingStop(1)
         mockRepository.expectLoadItems(items: [], error: ParseError.parseIssue)
         
@@ -58,12 +58,13 @@ class ViewModelTests: XCTestCase {
         let url = generateUrl()
 
         mockView.expectHandleLoadingStart(1)
-        mockView.expectReload(0)
+        mockView.expectReload(1)
         mockView.expectHandleLoadingStop(1)
         mockRepository.expectLoadItems(items: [], error: ParseError.parseIssue)
         
         serviceUnderTest.loadFile(url: url)
         
+        XCTAssertTrue(serviceUnderTest.itemsCount() == 0)
         XCTAssertEqual(expected, mockView.handleError as? ParseError)
     }
     
@@ -72,7 +73,7 @@ class ViewModelTests: XCTestCase {
         let url = generateUrl()
 
         mockView.expectHandleLoadingStart(1)
-        mockView.expectReload(1)
+        mockView.expectReload(2)
         mockView.expectHandleLoadingStop(1)
         mockRepository.expectLoadItems(items: expected, error: nil)
         

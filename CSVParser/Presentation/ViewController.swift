@@ -7,9 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LoadingIndicatorViewController, AlertPresenterViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.backgroundColor = .lightBackgroundColor
+        }
+    }
 
     private lazy var viewModel: ViewModel = {
         return ViewModel(view: self)
@@ -18,11 +22,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.rightBarButtonItem?.tintColor = .primaryColor
+        
         guard let url = Bundle.main.url(forResource: "issues", withExtension: "csv") else {
             return
         }
-        
         viewModel.loadFile(url: url)
+    }
+    
+    @IBAction func documentBrowserTapped(sender: Any) {
+        presentSingleCSVDocumentPicker()
     }
 
 }
@@ -55,18 +64,25 @@ extension ViewController: View {
 extension ViewController: LoadingHandler {
     
     func handleLoadingStart() {
-        //TODO: show loading indicator
+        showLoadingIndicator()
     }
     
     func handleLoadingStop() {
-        //TODO: hide loading indicator
+        hideLoadingIndicator()
     }
 }
 
 extension ViewController: ErrorHandler {
     
     func handleError(_ error: Error) {
-        //TODO: display alert with message
-        print("error: \(error.localizedDescription)")
+        presentAlert(error: error)
     }
+}
+
+extension ViewController: DocumentPresenterViewController {
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentAt url: URL) {
+        viewModel.loadFile(url: url)
+    }
+    
 }

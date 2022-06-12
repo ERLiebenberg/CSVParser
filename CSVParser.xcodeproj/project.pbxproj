@@ -21,7 +21,6 @@
 		3797EAE92854A68F00134632 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAE82854A68F00134632 /* TableViewCell.swift */; };
 		3797EAEC2854B5E500134632 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAEB2854B5E500134632 /* Repository.swift */; };
 		3797EAEF2854B61100134632 /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAEE2854B61100134632 /* CSVParser.swift */; };
-		3797EAF12854C38800134632 /* ItemKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAF02854C38800134632 /* ItemKey.swift */; };
 		3797EAF42854C3AC00134632 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAF32854C3AC00134632 /* Validator.swift */; };
 		3797EAF62854C3C800134632 /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAF52854C3C800134632 /* ParseError.swift */; };
 		3797EAF82854C40500134632 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EAF72854C40500134632 /* DateExtension.swift */; };
@@ -37,6 +36,11 @@
 		3797EB172855CBA000134632 /* MockParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB162855CBA000134632 /* MockParser.swift */; };
 		3797EB1B2855CBC800134632 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB1A2855CBC800134632 /* RepositoryTests.swift */; };
 		3797EB1D2855D85500134632 /* invalid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3797EB1C2855D85500134632 /* invalid.jpg */; };
+		3797EB1F2855E9EF00134632 /* DocumentPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB1E2855E9EF00134632 /* DocumentPresenterViewController.swift */; };
+		3797EB212856270A00134632 /* LoadingIndicatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB202856270900134632 /* LoadingIndicatorViewController.swift */; };
+		3797EB23285628AF00134632 /* AlertPresenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB22285628AF00134632 /* AlertPresenterViewController.swift */; };
+		3797EB252856297000134632 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3797EB242856297000134632 /* Color.xcassets */; };
+		3797EB2728562ED200134632 /* CSVParserImplemtation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3797EB2628562ED200134632 /* CSVParserImplemtation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +79,6 @@
 		3797EAE82854A68F00134632 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		3797EAEB2854B5E500134632 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		3797EAEE2854B61100134632 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
-		3797EAF02854C38800134632 /* ItemKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemKey.swift; sourceTree = "<group>"; };
 		3797EAF32854C3AC00134632 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		3797EAF52854C3C800134632 /* ParseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseError.swift; sourceTree = "<group>"; };
 		3797EAF72854C40500134632 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
@@ -91,6 +94,11 @@
 		3797EB162855CBA000134632 /* MockParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockParser.swift; sourceTree = "<group>"; };
 		3797EB1A2855CBC800134632 /* RepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		3797EB1C2855D85500134632 /* invalid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = invalid.jpg; sourceTree = "<group>"; };
+		3797EB1E2855E9EF00134632 /* DocumentPresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPresenterViewController.swift; sourceTree = "<group>"; };
+		3797EB202856270900134632 /* LoadingIndicatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorViewController.swift; sourceTree = "<group>"; };
+		3797EB22285628AF00134632 /* AlertPresenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresenterViewController.swift; sourceTree = "<group>"; };
+		3797EB242856297000134632 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		3797EB2628562ED200134632 /* CSVParserImplemtation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParserImplemtation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +163,7 @@
 				378997DC28548F430055C432 /* Assets.xcassets */,
 				378997DE28548F430055C432 /* LaunchScreen.storyboard */,
 				378997E128548F430055C432 /* Info.plist */,
+				3797EB242856297000134632 /* Color.xcassets */,
 			);
 			path = CSVParser;
 			sourceTree = "<group>";
@@ -188,6 +197,9 @@
 				3797EAFD2854C4B900134632 /* View.swift */,
 				3797EAFF2854C4CC00134632 /* LoadingHandler.swift */,
 				3797EB012854C4DD00134632 /* ErrorHandler.swift */,
+				3797EB1E2855E9EF00134632 /* DocumentPresenterViewController.swift */,
+				3797EB202856270900134632 /* LoadingIndicatorViewController.swift */,
+				3797EB22285628AF00134632 /* AlertPresenterViewController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -206,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				3797EADF2854A03700134632 /* Item.swift */,
-				3797EAF02854C38800134632 /* ItemKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,6 +235,7 @@
 			children = (
 				3797EAEE2854B61100134632 /* CSVParser.swift */,
 				3797EAF52854C3C800134632 /* ParseError.swift */,
+				3797EB2628562ED200134632 /* CSVParserImplemtation.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -376,6 +388,7 @@
 			files = (
 				3797EB052854C84E00134632 /* issues.csv in Resources */,
 				378997E028548F430055C432 /* LaunchScreen.storyboard in Resources */,
+				3797EB252856297000134632 /* Color.xcassets in Resources */,
 				378997DD28548F430055C432 /* Assets.xcassets in Resources */,
 				378997DB28548F410055C432 /* Main.storyboard in Resources */,
 			);
@@ -406,21 +419,24 @@
 			files = (
 				3797EADE28549FF600134632 /* ViewModel.swift in Sources */,
 				378997D828548F410055C432 /* ViewController.swift in Sources */,
+				3797EB1F2855E9EF00134632 /* DocumentPresenterViewController.swift in Sources */,
 				3797EAFE2854C4B900134632 /* View.swift in Sources */,
 				3797EAFA2854C41C00134632 /* DateFormatterExtension.swift in Sources */,
-				3797EAF12854C38800134632 /* ItemKey.swift in Sources */,
+				3797EB2728562ED200134632 /* CSVParserImplemtation.swift in Sources */,
 				3797EAEF2854B61100134632 /* CSVParser.swift in Sources */,
 				3797EB022854C4DD00134632 /* ErrorHandler.swift in Sources */,
 				378997D428548F410055C432 /* AppDelegate.swift in Sources */,
 				3797EAF82854C40500134632 /* DateExtension.swift in Sources */,
 				3797EAF42854C3AC00134632 /* Validator.swift in Sources */,
 				3797EAEC2854B5E500134632 /* Repository.swift in Sources */,
+				3797EB23285628AF00134632 /* AlertPresenterViewController.swift in Sources */,
 				378997D628548F410055C432 /* SceneDelegate.swift in Sources */,
 				3797EB002854C4CC00134632 /* LoadingHandler.swift in Sources */,
 				3797EAF62854C3C800134632 /* ParseError.swift in Sources */,
 				3797EAE02854A03700134632 /* Item.swift in Sources */,
 				3797EAE92854A68F00134632 /* TableViewCell.swift in Sources */,
 				3797EADC28549B9400134632 /* ColorExtension.swift in Sources */,
+				3797EB212856270A00134632 /* LoadingIndicatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
