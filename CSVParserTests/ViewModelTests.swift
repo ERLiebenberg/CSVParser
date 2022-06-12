@@ -11,12 +11,21 @@ import XCTest
 
 class ViewModelTests: XCTestCase {
 
-    var serviceUnderTest: ViewModel!
+    private var serviceUnderTest: ViewModel!
+    
+    private var mockView = MockView()
+    private var mockRepository = MockRepository()
     
     override func setUp() {
         super.setUp()
         
-        serviceUnderTest = ViewModel()
+        serviceUnderTest = ViewModel(view: mockView, repository: mockRepository)
+    }
+    
+    override func tearDown() {
+        super.tearDown()
+        
+        mockView.verify()
     }
     
     func testServiceUnderTestIsNotNil() {
@@ -24,18 +33,70 @@ class ViewModelTests: XCTestCase {
     }
     
     func testItemsCount() {
-        XCTAssertEqual(1, serviceUnderTest.itemsCount())
+        XCTAssertEqual(0, serviceUnderTest.itemsCount())
     }
 
     func testItemsCountWithInvalidIndex() {
         XCTAssertNil(serviceUnderTest.item(at: 999))
     }
     
-    func testItemsCountWithValidIndex() {
-        let expected = Item(firstName: "name", surname: "surname", issueCount: "count", dateOfBirth: "date")
-        let actual = serviceUnderTest.item(at: 0)
+    func testLoadItemsUrl() {
+        let expected = generateUrl()
         
-        XCTAssertEqual(expected, actual)
+        mockView.expectHandleLoadingStart(1)
+        mockView.expectReload(0)
+        mockView.expectHandleLoadingStop(1)
+        mockRepository.expectLoadItems(items: [], error: ParseError.parseIssue)
+        
+        serviceUnderTest.loadFile(url: expected)
+        
+        XCTAssertEqual(expected, mockRepository.actualUrl)
+    }
+    
+    func testLoadItemsFailure() {
+        let expected = ParseError.parseIssue
+        let url = generateUrl()
+
+        mockView.expectHandleLoadingStart(1)
+        mockView.expectReload(0)
+        mockView.expectHandleLoadingStop(1)
+        mockRepository.expectLoadItems(items: [], error: ParseError.parseIssue)
+        
+        serviceUnderTest.loadFile(url: url)
+        
+        XCTAssertEqual(expected, mockView.handleError as? ParseError)
+    }
+    
+    func testLoadItemsSuccess() {
+        let expected = [generateItem(), generateItem()]
+        let url = generateUrl()
+
+        mockView.expectHandleLoadingStart(1)
+        mockView.expectReload(1)
+        mockView.expectHandleLoadingStop(1)
+        mockRepository.expectLoadItems(items: expected, error: nil)
+        
+        serviceUnderTest.loadFile(url: url)
+        
+        for (index, expected) in expected.enumerated() {
+            let actual = serviceUnderTest.item(at: index)
+            XCTAssertEqual(expected, actual)
+        }
+        
+        XCTAssertEqual(expected.count, serviceUnderTest.itemsCount())
+    }
+    
+    private func generateItem() -> Item {
+        let dictionary = [ItemKey.firstName.rawValue: "name",
+                          ItemKey.surname.rawValue: "surname",
+                          ItemKey.issueCount.rawValue: "0",
+                          ItemKey.dateOfBirth.rawValue: "1978-01-02T00:00:00"]
+        
+        return Item(dictionary: dictionary)
+    }
+    
+    private func generateUrl() -> URL {
+        return URL(fileURLWithPath: "path")
     }
 
 }

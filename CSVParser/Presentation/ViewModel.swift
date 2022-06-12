@@ -9,7 +9,31 @@ import Foundation
 
 class ViewModel {
     
-    private let items = [Item(firstName: "name", surname: "surname", issueCount: "count", dateOfBirth: "date")]
+    private var items = [Item]()
+    private let repository: Repository
+    
+    private weak var view: View?
+    
+    init(view: View, repository: Repository = RepositoryImplementation()) {
+        self.view = view
+        self.repository = repository
+    }
+    
+    func loadFile(url: URL) {
+        view?.handleLoadingStart()
+    
+        repository.loadItems(url: url) { [weak self] items, error in
+            guard let error = error else {
+                self?.items = items
+                self?.view?.reloadView()
+                self?.view?.handleLoadingStop()
+                return
+            }
+            
+            self?.view?.handleError(error)
+            self?.view?.handleLoadingStop()
+        }
+    }
     
     func itemsCount() -> Int {
         return items.count

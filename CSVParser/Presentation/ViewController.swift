@@ -12,12 +12,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     private lazy var viewModel: ViewModel = {
-        return ViewModel()
+        return ViewModel(view: self)
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        guard let url = Bundle.main.url(forResource: "issues", withExtension: "csv") else {
+            return
+        }
+        
+        viewModel.loadFile(url: url)
     }
 
 }
@@ -37,5 +42,31 @@ extension ViewController: UITableViewDataSource {
         cell.configure(item)
         
         return cell
+    }
+}
+
+extension ViewController: View {
+    
+    func reloadView() {
+        tableView.reloadData()
+    }
+}
+
+extension ViewController: LoadingHandler {
+    
+    func handleLoadingStart() {
+        //TODO: show loading indicator
+    }
+    
+    func handleLoadingStop() {
+        //TODO: hide loading indicator
+    }
+}
+
+extension ViewController: ErrorHandler {
+    
+    func handleError(_ error: Error) {
+        //TODO: display alert with message
+        print("error: \(error.localizedDescription)")
     }
 }
