@@ -24,10 +24,9 @@ class ViewController: UIViewController, LoadingIndicatorViewController, AlertPre
         
         navigationItem.rightBarButtonItem?.tintColor = .primaryColor
         
-        guard let url = Bundle.main.url(forResource: "issues", withExtension: "csv") else {
-            return
+        if let url = Bundle.main.url(forResource: "issues", withExtension: "csv") {
+            viewModel.loadFile(url: url)
         }
-        viewModel.loadFile(url: url)
     }
     
     @IBAction func documentBrowserTapped(sender: Any) {

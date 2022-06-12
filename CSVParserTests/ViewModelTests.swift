@@ -23,9 +23,9 @@ class ViewModelTests: XCTestCase {
     }
     
     override func tearDown() {
-        super.tearDown()
-        
         mockView.verify()
+        
+        super.tearDown()
     }
     
     func testServiceUnderTestIsNotNil() {
