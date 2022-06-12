@@ -38,7 +38,7 @@ class TableViewCell: UITableViewCell {
     
     func configure(_ item: Item) {
         titleLabel.text = item.firstName + " " + item.surname
-        subTitleLabel.text = item.dateOfBirth
+        subTitleLabel.text = item.dateOfBirthFormatted
         rightDetailLabel.text = item.issueCount
     }
     
